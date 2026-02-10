@@ -6,7 +6,7 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 20:10:42 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/10 18:19:25 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/10 20:34:10 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ void	op_rr(t_context *c);
 void	op_rra(t_context *c);
 void	op_rrb(t_context *c);
 void	op_rrr(t_context *c);
+
+void	bubble_sort(t_context *c);
 
 #endif
