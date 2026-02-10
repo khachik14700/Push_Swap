@@ -6,7 +6,7 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 20:12:06 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/09 20:29:54 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:18:41 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,20 @@ void	stack_free(t_stack *s)
 	s->cap = 0;
 }
 
-void	stats_init(t_stats *st)
+void	stats_init(t_context *c)
 {
-	st->total = 0;
-	st->sa = 0;
-	st->sb = 0;
-	st->ss = 0;
-	st->pa = 0;
-	st->pb = 0;
-	st->ra = 0;
-	st->rb = 0;
-	st->rr = 0;
-	st->rra = 0;
-	st->rrb = 0;
-	st->rrr = 0;
+	c->st.total = 0;
+	c->st.sa = 0;
+	c->st.sb = 0;
+	c->st.ss = 0;
+	c->st.pa = 0;
+	c->st.pb = 0;
+	c->st.ra = 0;
+	c->st.rb = 0;
+	c->st.rr = 0;
+	c->st.rra = 0;
+	c->st.rrb = 0;
+	c->st.rrr = 0;
+	c->mode = 0;
+	c->bench = 0;
 }
