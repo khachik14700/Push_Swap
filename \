@@ -1,0 +1,149 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   complex_algorithm.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/11 16:11:38 by kkhachat          #+#    #+#             */
+/*   Updated: 2026/02/11 19:36:27 by kkhachat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+static int	min_int(int a, int b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+static void	transfer_left_run_to_b(t_context *c, int lenL)
+{
+	int	i;
+
+	i = 0;
+	while (i < lenL)
+	{
+		op_pb(c);
+		op_rb(c);
+		i++;
+	}
+}
+
+static void	merge_runs(t_context *c, int lenL, int lenR)
+{
+	int	takenl;
+	int	takenr;
+	int	total;
+	int	i;
+
+	takenl = 0;
+	takenr = 0;
+	total = lenL + lenR;
+	i = 0;
+	transfer_left_run_to_b(c, lenL);
+	while (i < total)
+	{
+		if (takenl == lenL)
+		{
+			op_ra(c);
+			takenr++;
+		}
+		else if (takenr == lenR)
+		{
+			op_pa(c);
+			op_ra(c);
+			takenl++;
+		}
+		else
+		{
+			if (c->b.data[0] <= c->a.data[0])
+			{
+				op_pa(c);
+				op_ra(c);
+				takenl++;
+			}
+			else
+			{
+				op_ra(c);
+				takenr++;
+			}
+		}
+		i++;
+	}
+
+}
+
+static void	merge_round(t_context *c, int len)
+{
+	int	n;
+	int	processed;
+	int	lenL;
+	int	lenR;
+	int	j;
+
+	n = c->a.size;
+	processed = 0;
+	while (processed < n)
+	{
+		lenL = min_int(len, n - processed);
+		lenR = min_int(len, n - processed - lenL);
+		if (lenR > 0)
+			merge_runs(c, lenL, lenR);
+		else
+		{
+			j = 0;
+			while(j++ < lenL)
+				op_ra(c);
+		}
+		processed += (lenL + lenR);
+	}
+}
+
+static void	rotate_to_min(t_context *c)
+{
+	int	min_val;
+	int	min_idx;
+	int	i;
+	int	k;
+
+	min_val = c->a.data[0];
+	min_idx = 0;
+	i = 1;
+	while (i < c->a.size)
+	{
+		if (c->a.data[i] < min_val)
+		{
+			min_val = c->a.data[i];
+			min_idx = i;
+		}
+		i++;
+	}
+	if (min_idx <= c->a.size / 2)
+	{
+		k = min_idx;
+		while (k--)
+			op_ra(c);
+	}
+	else
+	{
+		k = c->a.size - min_idx;
+		while (k--)
+			op_rra(c);
+	}
+}
+
+void	merge_sort(t_context *c)
+{
+	int	len;
+
+	len = 1;
+	while (len < c->a.size)
+	{
+		merge_round(c,len);
+		len *= 2;
+	}
+	rotate_to_min(c);
+}
