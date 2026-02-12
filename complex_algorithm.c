@@ -6,13 +6,13 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:11:38 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/11 20:05:58 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/12 21:06:28 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	transfer_left_run_to_b(t_context *c, int lenL)
+void	transfer_left_run_to_b(t_context *c, int lenL)
 {
 	int	i;
 
