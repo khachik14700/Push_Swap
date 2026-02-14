@@ -6,7 +6,7 @@
 /*   By: vgurginy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/13 19:03:47 by vgurginy          #+#    #+#             */
-/*   Updated: 2026/02/14 19:40:29 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/14 20:39:35 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	start(t_context *context)
 	double	disorder;
 
 	disorder = compute_disorder(&(context->a));
-	printf("%f\n", disorder);
 	if (context->mode == 1)
 		adaptive_sort(disorder, context);
 	else if (context->mode == 2)

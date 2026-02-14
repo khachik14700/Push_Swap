@@ -6,7 +6,7 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:24:31 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/12 21:01:11 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/14 20:34:57 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ static int	helper(t_context *c, t_helper_2 *t)
 void	chunk_based_sort(t_context *c)
 {
 	t_helper_2	t;
+	int			n;
 
 	if (!helper(c, &t))
 		return ;
@@ -79,10 +80,11 @@ void	chunk_based_sort(t_context *c)
 		t.k = 1;
 	t.chunk_size = (c->a.size + t.k - 1) / t.k;
 	t.chunk = 0;
+	n = c->a.size;
 	while (t.chunk < t.k)
 	{
 		t.l = t.chunk * t.chunk_size;
-		t.r = min_int(c->a.size - 1, t.l + t.chunk_size - 1);
+		t.r = min_int(n - 1, t.l + t.chunk_size - 1);
 		push_chunk(c, t.l, t.r);
 		(t.chunk)++;
 	}

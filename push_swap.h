@@ -6,13 +6,12 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 20:10:42 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/14 19:39:32 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/14 20:38:15 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
@@ -136,5 +135,6 @@ void	print_operations_1(t_context *context);
 void	make_operations_char(char **strs, t_context *context);
 void	print_operations_2(t_context *context);
 void	radix_sort(t_context *c);
+int		is_sorted_a(t_context *c);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: kkhachat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 18:53:48 by kkhachat          #+#    #+#             */
-/*   Updated: 2026/02/14 19:37:58 by kkhachat         ###   ########.fr       */
+/*   Updated: 2026/02/14 20:25:14 by kkhachat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted_a(t_context *c)
+int	is_sorted_a(t_context *c)
 {
 	int	i;
 
